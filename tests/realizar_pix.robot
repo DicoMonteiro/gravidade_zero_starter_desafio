@@ -23,7 +23,7 @@ Deve realizar um PIX com valor positivo
 
     Submit Payment Form
 
-    User Should Be Balance                R$ 900
+    User Should Be Balance                ${dados}[valor_saldo]
 
     Bank Statement Should Be Visible      ${dados}
 
@@ -80,3 +80,20 @@ Deve limpar os campos ao cancelar a realização do PIX
     Go To The PIX
 
     Datas Should Not Be Visible           ${dados}
+
+
+Deve realizar um PIX com chave acima de 150 caracteres
+    [Tags]      chave_caracteres_acima
+
+    &{dados}      Factory Pix Sem Limite
+
+    Go To Home Page                       ${message_welcome}
+    User Should Be Balance                ${balance_initial}
+
+    Go To The PIX
+
+    Fill PIX Form                         ${dados}
+
+    Submit Payment Form
+
+    Alert Message Should Be               Oops. Chave PIX muito grande. Tente novamente!

@@ -16,7 +16,7 @@ ${balance_initial}         R$ 1000
 *** Keywords ***
 Start Session
 
-    New Browser     chromium    headless=False      slowMo=00:00:00
+    New Browser     chromium    headless=False      slowMo=00:00:02
     New Page        https://nbank.vercel.app/
     
 
